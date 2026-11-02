@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SG Private Limited — Namakkal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap">
+<style>
+/* ── LOGO COLORS: Navy #060A18, Royal Blue #1A35B0, Yellow #F2CC0A ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#060A18;color:#EEF2FF;font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+img{max-width:100%}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(6,10,24,.92);backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(242,204,10,.15)}
+.ni{display:flex;align-items:center;justify-content:space-between;
+  padding:12px clamp(16px,4vw,48px);max-width:1300px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#EEF2FF}
+.logo img{width:48px;height:48px;border-radius:50%;animation:logo-spin 20s linear infinite;object-fit:contain;background:#fff;padding:2px}
+@keyframes logo-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.logo-txt{line-height:1.2}
+.logo-n{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.logo-s{font-size:9px;letter-spacing:.2em;color:#F2CC0A;text-transform:uppercase}
+.nl{display:flex;gap:4px;list-style:none}
+.nl a{display:block;padding:8px 14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(238,242,255,.6);text-decoration:none;transition:color .2s;position:relative}
+.nl a::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%) scaleX(0);
+  width:14px;height:1px;background:#F2CC0A;transition:transform .22s}
+.nl a:hover,.nl a.active{color:#EEF2FF}
+.nl a.active::after,.nl a:hover::after{transform:translateX(-50%) scaleX(1)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;color:#EEF2FF}
+.hbg span{display:block;width:22px;height:1.5px;background:currentColor;transition:.25s}
+.mm{display:none;flex-direction:column;background:#0C1228;border-top:1px solid rgba(242,204,10,.12);
+  padding:12px clamp(16px,4vw,48px)}
+.mm.open{display:flex}
+.mm a{padding:12px 0;font-size:13px;text-transform:uppercase;letter-spacing:.08em;
+  color:rgba(238,242,255,.6);border-bottom:1px solid rgba(242,204,10,.1);
+  text-decoration:none;transition:color .2s}
+.mm a:last-child{border-bottom:none}.mm a:hover,.mm a.active{color:#F2CC0A}
+@media(max-width:640px){.nl{display:none}.hbg{display:flex}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
+  padding:100px clamp(20px,6vw,80px) 80px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+/* Animated grid */
+.hero-grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(26,53,176,.12) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(26,53,176,.12) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 100% 90% at 50% 50%,black 15%,transparent 75%)}
+/* Glow */
+.hero-glow{position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 10% 50%,rgba(242,204,10,.08),transparent 60%),
+             radial-gradient(ellipse 50% 40% at 85% 60%,rgba(26,53,176,.1),transparent 55%)}
+/* Big rotating logo behind text */
+.hero-logo-bg{position:absolute;right:-40px;top:50%;transform:translateY(-50%);
+  width:min(600px,85vw);height:min(600px,85vw);opacity:.05;z-index:1;
+  animation:spin-bg 45s linear infinite;pointer-events:none}
+@keyframes spin-bg{from{transform:translateY(-50%) rotate(0deg)}to{transform:translateY(-50%) rotate(360deg)}}
+.hero-content{position:relative;z-index:2;max-width:760px}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;letter-spacing:.28em;
+  text-transform:uppercase;color:#F2CC0A;margin-bottom:20px}
+.hero-tag::before{content:'';width:28px;height:1px;background:#F2CC0A}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,9vw,7.5rem);
+  font-weight:900;line-height:.96;letter-spacing:-.03em;color:#EEF2FF}
+.hero h1 em{font-style:italic;-webkit-text-stroke:1px #F2CC0A;color:transparent;display:block}
+.hero h1 strong{color:#F2CC0A}
+.hero-sub{font-size:clamp(1rem,1.5vw,1.1rem);color:#8899CC;max-width:460px;
+  margin:22px 0 40px;font-weight:300;line-height:1.8}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;font-size:11.5px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;
+  border:none;transition:all .25s;text-decoration:none}
+.btn-y{background:linear-gradient(135deg,#F2CC0A,#FFDF40);color:#060A18;font-weight:700;
+  clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px))}
+.btn-y:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(242,204,10,.35)}
+.btn-b{background:transparent;color:#EEF2FF;border:1px solid rgba(26,53,176,.6);
+  clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px))}
+.btn-b:hover{border-color:#1A35B0;color:#F2CC0A;transform:translateY(-2px)}
+
+/* Floating 3D doc cards */
+.doc-stage{position:absolute;right:clamp(20px,7vw,100px);top:50%;transform:translateY(-50%);
+  z-index:3;perspective:900px;width:200px;height:280px}
+@media(max-width:980px){.doc-stage{display:none}}
+.doc-spin{width:100%;height:100%;position:relative;transform-style:preserve-3d;
+  animation:doc3d 8s ease-in-out infinite}
+@keyframes doc3d{
+  0%{transform:rotateY(-15deg) rotateX(8deg)}
+  33%{transform:rotateY(18deg) rotateX(-6deg)}
+  66%{transform:rotateY(-10deg) rotateX(12deg)}
+  100%{transform:rotateY(-15deg) rotateX(8deg)}
+}
+.dc{position:absolute;width:160px;background:#0C1228;
+  border:1px solid rgba(242,204,10,.2);padding:16px;border-radius:2px;
+  box-shadow:0 16px 48px rgba(0,0,0,.6)}
+.dc:nth-child(1){top:0;left:0;transform:rotate(-5deg) translateZ(10px)}
+.dc:nth-child(2){top:24px;left:28px;transform:rotate(2deg) translateZ(32px)}
+.dc:nth-child(3){top:48px;left:12px;transform:rotate(-1deg) translateZ(54px);background:#111A38}
+.dc-icon{width:24px;height:32px;margin-bottom:12px;
+  background:linear-gradient(135deg,#1A35B0,#F2CC0A);
+  clip-path:polygon(0 0,66% 0,100% 34%,100% 100%,0 100%);opacity:.8}
+.dc-line{height:2px;background:rgba(242,204,10,.15);border-radius:1px;margin-bottom:5px}
+.dc-line:nth-child(3){width:65%}.dc-line:nth-child(4){width:45%}
+.dc-lbl{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#F2CC0A;margin-top:10px;
+  display:flex;align-items:center;gap:5px}
+.dc-lbl::before{content:'';width:5px;height:5px;background:#F2CC0A;border-radius:50%;
+  animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.5)}}
+
+/* Rainbow scroll indicator */
+.scroll-line{position:absolute;bottom:32px;left:clamp(20px,6vw,80px);z-index:2;
+  display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;color:#8899CC}
+.scroll-line::before{content:'';width:1px;height:40px;
+  background:linear-gradient(to bottom,#F2CC0A,transparent);
+  animation:spulse 2s ease-in-out infinite}
+@keyframes spulse{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* MARQUEE */
+.mq{border-top:1px solid rgba(242,204,10,.12);border-bottom:1px solid rgba(242,204,10,.12);
+  background:#0C1228;padding:13px 0;overflow:hidden}
+.mq-track{display:flex;animation:mqs 22s linear infinite;width:max-content}
+.mq-item{display:flex;align-items:center;gap:14px;padding-right:44px;
+  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8899CC;white-space:nowrap}
+.mq-dot{width:5px;height:5px;rotate:45deg;flex-shrink:0}
+.mq-dot:nth-child(1){background:#F2CC0A}
+@keyframes mqs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SERVICES */
+.services{padding:88px clamp(20px,6vw,80px);max-width:1300px;margin:0 auto}
+.sec-ey{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#F2CC0A;
+  margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-ey::before{content:'';width:24px;height:1px;background:#F2CC0A}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);
+  font-weight:700;line-height:1.1;letter-spacing:-.02em;color:#EEF2FF;text-wrap:balance;margin-bottom:52px}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1px;background:rgba(242,204,10,.12);border:1px solid rgba(242,204,10,.12)}
+.svc{background:#060A18;padding:36px 28px;position:relative;overflow:hidden;transition:background .25s}
+.svc::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;
+  background:linear-gradient(to bottom,#F2CC0A,#1A35B0);transition:height .4s}
+.svc:hover{background:#0C1228}.svc:hover::before{height:100%}
+.svc-num{font-size:10.5px;letter-spacing:.22em;color:#F2CC0A;
+  margin-bottom:18px;font-family:'Playfair Display',serif;font-weight:700}
+.svc h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;
+  margin-bottom:9px;color:#EEF2FF}
+.svc p{font-size:13px;color:#8899CC;line-height:1.72}
+.svc-ico{margin-bottom:16px}
+
+/* RAINBOW STRIP */
+.rainbow-strip{height:4px;background:linear-gradient(90deg,
+  #FF0000,#FF6600,#FFCC00,#33CC00,#0099FF,#6633FF,#CC00CC,#FF0066,
+  #FF0000,#FF6600,#FFCC00,#33CC00,#0099FF,#6633FF,#CC00CC,#FF0066);
+  background-size:200% 100%;animation:rainbow-move 4s linear infinite}
+@keyframes rainbow-move{from{background-position:0% 0}to{background-position:200% 0}}
+
+/* FOOTER */
+.footer-sect{padding:0 clamp(20px,6vw,80px);background:#060A18}
+footer{max-width:1300px;margin:0 auto;
+  padding:34px 0;padding-bottom:max(34px,env(safe-area-inset-bottom,0px));
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  border-top:1px solid rgba(242,204,10,.12)}
+.fc{font-size:11px;color:#8899CC}
+.fl{display:flex;gap:20px;list-style:none}
+.fl a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8899CC;
+  text-decoration:none;transition:color .2s}
+.fl a:hover{color:#F2CC0A}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s,transform .65s}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* CANVAS */
+#cvs{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.25}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<canvas id="cvs"></canvas>
+
+<nav>
+  <div class="ni">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="SG Private Limited logo">
+      <div class="logo-txt">
+        <div class="logo-n">SG Private Limited</div>
+        <div class="logo-s">Namakkal • Document Verification</div>
+      </div>
+    </a>
+    <ul class="nl">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="achievement.html">Achievements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mm" id="mm">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="achievement.html">Achievements</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+  </div>
+  <img src="images/logo.png" class="hero-logo-bg" alt="" aria-hidden="true">
+
+  <div class="hero-content">
+    <div class="hero-tag rv">Namakkal's Trusted Document Services</div>
+    <h1 class="rv d1">
+      <strong>SG</strong> Private<br>
+      <em>Limited</em>
+    </h1>
+    <p class="hero-sub rv d2">
+      Precision file management and comprehensive document verification — every record handled with accuracy, authority, and confidentiality.
+    </p>
+    <div class="hero-btns rv d3">
+      <a href="achievement.html" class="btn btn-y">Our Achievements</a>
+      <a href="contact.html" class="btn btn-b">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="doc-stage" aria-hidden="true">
+    <div class="doc-spin">
+      <div class="dc">
+        <div class="dc-icon"></div>
+        <div class="dc-line"></div><div class="dc-line"></div><div class="dc-line"></div>
+        <div class="dc-lbl">Verified</div>
+      </div>
+      <div class="dc">
+        <div class="dc-icon"></div>
+        <div class="dc-line"></div><div class="dc-line"></div><div class="dc-line"></div>
+        <div class="dc-lbl">Certified</div>
+      </div>
+      <div class="dc">
+        <div class="dc-icon"></div>
+        <div class="dc-line"></div><div class="dc-line"></div><div class="dc-line"></div>
+        <div class="dc-lbl">Approved</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-line" aria-hidden="true">Scroll</div>
+</section>
+
+<div class="rainbow-strip"></div>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-track">
+    <span class="mq-item"><span class="mq-dot"></span>Document Verification</span>
+    <span class="mq-item"><span class="mq-dot" style="background:#1A35B0"></span>File Management</span>
+    <span class="mq-item"><span class="mq-dot" style="background:#33CC00"></span>Record Authentication</span>
+    <span class="mq-item"><span class="mq-dot" style="background:#FF6600"></span>Office Services</span>
+    <span class="mq-item"><span class="mq-dot" style="background:#CC00CC"></span>Certification</span>
+    <span class="mq-item"><span class="mq-dot" style="background:#0099FF"></span>Compliance</span>
+    <span class="mq-item"><span class="mq-dot"></span>Document Verification</span>
+    <span class="mq-item"><span class="mq-dot" style="background:#1A35B0"></span>File Management</span>
+    <span class="mq-item"><span class="mq-dot" style="background:#33CC00"></span>Record Authentication</span>
+    <span class="mq-item"><span class="mq-dot" style="background:#FF6600"></span>Office Services</span>
+    <span class="mq-item"><span class="mq-dot" style="background:#CC00CC"></span>Certification</span>
+    <span class="mq-item"><span class="mq-dot" style="background:#0099FF"></span>Compliance</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services">
+  <p class="sec-ey rv">What We Do</p>
+  <h2 class="sec-title rv d1">Comprehensive Office<br>Document Services</h2>
+  <div class="svc-grid">
+    <div class="svc rv">
+      <div class="svc-num">01</div>
+      <svg class="svc-ico" width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <rect x="6" y="2" width="24" height="32" rx="1" stroke="#F2CC0A" stroke-width="1.3"/>
+        <line x1="12" y1="12" x2="24" y2="12" stroke="#8899CC" stroke-width="1.2"/>
+        <line x1="12" y1="17" x2="24" y2="17" stroke="#8899CC" stroke-width="1.2"/>
+        <line x1="12" y1="22" x2="18" y2="22" stroke="#8899CC" stroke-width="1.2"/>
+        <circle cx="32" cy="32" r="8" stroke="#F2CC0A" stroke-width="1.3"/>
+        <path d="M28 32L31 35L36 29" stroke="#F2CC0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>Document Verification</h3>
+      <p>Thorough authentication of business and personal documents, ensuring accuracy and legal compliance at every step.</p>
+    </div>
+    <div class="svc rv d1">
+      <div class="svc-num">02</div>
+      <svg class="svc-ico" width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <rect x="4" y="6" width="18" height="24" rx="1" stroke="#1A35B0" stroke-width="1.3" opacity=".6"/>
+        <rect x="12" y="12" width="18" height="24" rx="1" stroke="#8899CC" stroke-width="1.3" opacity=".5"/>
+        <rect x="20" y="18" width="18" height="22" rx="1" fill="#0C1228" stroke="#F2CC0A" stroke-width="1.3"/>
+        <line x1="25" y1="24" x2="33" y2="24" stroke="#8899CC" stroke-width="1.1"/>
+        <line x1="25" y1="28" x2="33" y2="28" stroke="#8899CC" stroke-width="1.1"/>
+        <line x1="25" y1="32" x2="29" y2="32" stroke="#8899CC" stroke-width="1.1"/>
+      </svg>
+      <h3>File Management</h3>
+      <p>Systematic organization, storage, and retrieval of official files — keeping your office operations seamless.</p>
+    </div>
+    <div class="svc rv d2">
+      <div class="svc-num">03</div>
+      <svg class="svc-ico" width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <path d="M22 3L41 13L41 31L22 41L3 31L3 13Z" stroke="#F2CC0A" stroke-width="1.3"/>
+        <path d="M14 22L20 28L30 17" stroke="#F2CC0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>Certification Services</h3>
+      <p>Official certification and attestation backed by rigorous verification protocols and expert review.</p>
+    </div>
+    <div class="svc rv d3">
+      <div class="svc-num">04</div>
+      <svg class="svc-ico" width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <rect x="4" y="8" width="36" height="28" rx="2" stroke="#F2CC0A" stroke-width="1.3"/>
+        <line x1="4" y1="16" x2="40" y2="16" stroke="#8899CC" stroke-width="1.1"/>
+        <circle cx="14" cy="28" r="3" fill="#F2CC0A" opacity=".4"/>
+        <circle cx="22" cy="28" r="3" fill="#F2CC0A" opacity=".65"/>
+        <circle cx="30" cy="28" r="3" fill="#F2CC0A"/>
+      </svg>
+      <h3>Record Processing</h3>
+      <p>End-to-end processing of official records from initial submission through verification and final archiving.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rainbow-strip"></div>
+<div class="footer-sect">
+  <footer>
+    <p class="fc">© 2024 SG Private Limited, Namakkal. All rights reserved.</p>
+    <ul class="fl">
+      <li><a href="about.html">About</a></li>
+      <li><a href="achievement.html">Achievements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+</div>
+
+<script>
+// Hamburger
+document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mm').classList.toggle('open'));
+
+// Reveal
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// Canvas particles
+(function(){
+  const cv=document.getElementById('cvs'),cx=cv.getContext('2d');
+  let W,H;
+  const rsz=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight};
+  rsz();window.addEventListener('resize',rsz);
+  const rainbow=['#FF0000','#FF6600','#FFCC00','#33CC00','#0099FF','#6633FF','#CC00CC','#FF0066','#F2CC0A','#1A35B0'];
+  const pts=Array.from({length:35},(_,i)=>({
+    x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+    vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,
+    sz:Math.random()*2+.8,op:Math.random()*.3+.1,
+    rot:Math.random()*Math.PI*2,rspd:(Math.random()-.5)*.005,
+    color:rainbow[i%rainbow.length],doc:Math.random()>.6
+  }));
+  function draw(){
+    cx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.rot+=p.rspd;
+      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
+      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
+      cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.globalAlpha=p.op*.4;
+      if(p.doc){
+        cx.strokeStyle=p.color;cx.lineWidth=.6;
+        const w=p.sz*5,h=p.sz*7;cx.strokeRect(-w/2,-h/2,w,h);
+      } else {
+        cx.fillStyle=p.color;cx.fillRect(-p.sz/2,-p.sz/2,p.sz,p.sz);
+      }
+      cx.restore();
+    });
+    requestAnimationFrame(draw);
+  }
+  if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches)draw();
+  else cv.style.display='none';
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achievements — SG Private Limited</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#060A18;color:#EEF2FF;font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+img{max-width:100%}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,10,24,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(242,204,10,.15)}
+.ni{display:flex;align-items:center;justify-content:space-between;padding:12px clamp(16px,4vw,48px);max-width:1300px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#EEF2FF}
+.logo img{width:48px;height:48px;border-radius:50%;animation:logo-spin 20s linear infinite;object-fit:contain;background:#fff;padding:2px}
+@keyframes logo-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.logo-n{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;line-height:1.2}
+.logo-s{font-size:9px;letter-spacing:.2em;color:#F2CC0A;text-transform:uppercase}
+.nl{display:flex;gap:4px;list-style:none}
+.nl a{display:block;padding:8px 14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(238,242,255,.6);text-decoration:none;transition:color .2s;position:relative}
+.nl a::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%) scaleX(0);width:14px;height:1px;background:#F2CC0A;transition:transform .22s}
+.nl a:hover,.nl a.active{color:#EEF2FF}.nl a.active::after,.nl a:hover::after{transform:translateX(-50%) scaleX(1)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;color:#EEF2FF}
+.hbg span{display:block;width:22px;height:1.5px;background:currentColor;transition:.25s}
+.mm{display:none;flex-direction:column;background:#0C1228;border-top:1px solid rgba(242,204,10,.12);padding:12px clamp(16px,4vw,48px)}
+.mm.open{display:flex}
+.mm a{padding:12px 0;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:rgba(238,242,255,.6);border-bottom:1px solid rgba(242,204,10,.1);text-decoration:none;transition:color .2s}
+.mm a:last-child{border-bottom:none}.mm a:hover,.mm a.active{color:#F2CC0A}
+@media(max-width:640px){.nl{display:none}.hbg{display:flex}}
+
+/* PAGE HERO */
+.page-hero{padding:140px clamp(20px,6vw,80px) 72px;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(26,53,176,.14),transparent 70%);
+  border-bottom:1px solid rgba(242,204,10,.1)}
+.ph-bg{position:absolute;right:-20px;bottom:-40px;width:320px;opacity:.04;animation:spin-bg 40s linear infinite;pointer-events:none}
+@keyframes spin-bg{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.ph-inner{max-width:1300px;margin:0 auto}
+.ey{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#F2CC0A;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.ey::before{content:'';width:24px;height:1px;background:#F2CC0A}
+.ph-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.98;letter-spacing:-.03em;color:#EEF2FF}
+.ph-title em{font-style:italic;color:#F2CC0A}
+
+/* RAINBOW */
+.rainbow-strip{height:4px;background:linear-gradient(90deg,#FF0000,#FF6600,#FFCC00,#33CC00,#0099FF,#6633FF,#CC00CC,#FF0066,#FF0000,#FF6600,#FFCC00,#33CC00,#0099FF,#6633FF,#CC00CC,#FF0066);background-size:200% 100%;animation:rmove 4s linear infinite}
+@keyframes rmove{from{background-position:0%}to{background-position:200%}}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(242,204,10,.12);border:1px solid rgba(242,204,10,.12);margin:0}
+.st{background:#060A18;padding:44px 24px;text-align:center;position:relative;overflow:hidden;transition:background .22s}
+.st:hover{background:#0C1228}
+.st::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#F2CC0A,#1A35B0);transform:scaleX(0);transition:transform .4s}
+.st:hover::after{transform:scaleX(1)}
+.st-n{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums;background:linear-gradient(135deg,#F2CC0A,#FFDF40);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.st-l{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8899CC}
+
+/* SECTION */
+.sec{max-width:1300px;margin:0 auto;padding:72px clamp(20px,6vw,80px)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;color:#EEF2FF;text-wrap:balance;margin-bottom:8px}
+.sec-sub{font-size:13.5px;color:#8899CC;margin-bottom:40px;max-width:500px}
+
+/* IMAGE GRID */
+.img-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:rgba(242,204,10,.1);border:1px solid rgba(242,204,10,.1)}
+@media(max-width:700px){.img-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.img-grid{grid-template-columns:1fr}}
+.gi{position:relative;overflow:hidden;background:#0C1228;aspect-ratio:4/3;cursor:pointer}
+.gi.wide{grid-column:span 2;aspect-ratio:16/7}
+.gi.tall{grid-row:span 2;aspect-ratio:auto}
+@media(max-width:700px){.gi.wide{grid-column:span 1;aspect-ratio:4/3}.gi.tall{grid-row:span 1}}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s cubic-bezier(.25,.46,.45,.94)}
+.gi:hover img{transform:scale(1.08) rotate(1deg)}
+.gi-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,10,24,.9) 0%,transparent 55%);display:flex;align-items:flex-end;padding:16px;opacity:0;transition:opacity .3s}
+.gi:hover .gi-ov{opacity:1}
+.gi-lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#EEF2FF}
+.gi-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#8899CC}
+.gi-ph-icon{font-size:28px;opacity:.35;animation:ph-float 3s ease-in-out infinite}
+@keyframes ph-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.gi-ph-txt{font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.4}
+
+/* VIDEO GRID */
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:16px}
+.vi-card{position:relative;overflow:hidden;background:#0C1228;border:1px solid rgba(242,204,10,.12);border-radius:2px;aspect-ratio:16/9;cursor:pointer}
+.vi-card video{width:100%;height:100%;object-fit:cover;display:block}
+.vi-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(6,10,24,.5);transition:opacity .3s}
+.vi-play-btn{width:56px;height:56px;background:rgba(242,204,10,.15);border:2px solid #F2CC0A;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:#F2CC0A;transition:all .3s}
+.vi-card:hover .vi-play-btn{background:#F2CC0A;color:#060A18;transform:scale(1.1)}
+.vi-lbl{position:absolute;bottom:0;left:0;right:0;padding:10px 14px;
+  background:linear-gradient(to top,rgba(6,10,24,.9),transparent);
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#EEF2FF}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:500;display:none;
+  align-items:center;justify-content:center;padding:20px}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border:1px solid rgba(242,204,10,.2)}
+.lb-close{position:fixed;top:20px;right:24px;font-size:28px;color:#F2CC0A;cursor:pointer;
+  background:none;border:none;line-height:1}
+.lb-close:hover{opacity:.7}
+.lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);font-size:24px;
+  color:#F2CC0A;cursor:pointer;background:rgba(6,10,24,.6);border:1px solid rgba(242,204,10,.2);
+  padding:12px 16px;transition:background .2s}
+.lb-prev{left:10px}.lb-next{right:10px}
+.lb-prev:hover,.lb-next:hover{background:rgba(242,204,10,.15)}
+
+/* AWARDS */
+.aw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;margin-top:16px}
+.aw{border:1px solid rgba(242,204,10,.14);padding:28px;background:#0C1228;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.aw::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F2CC0A,#1A35B0)}
+.aw-shine{position:absolute;top:-100%;left:-100%;width:200%;height:200%;background:linear-gradient(135deg,transparent 30%,rgba(242,204,10,.06) 50%,transparent 70%);transition:top .5s,left .5s}
+.aw:hover .aw-shine{top:0;left:0}
+.aw:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.aw-y{font-size:10px;letter-spacing:.22em;color:#F2CC0A;text-transform:uppercase;margin-bottom:10px}
+.aw-t{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#EEF2FF;margin-bottom:7px}
+.aw-b{font-size:12.5px;color:#8899CC;line-height:1.62}
+
+/* FOOTER */
+.footer-sect{padding:0 clamp(20px,6vw,80px);background:#060A18}
+footer{max-width:1300px;margin:0 auto;padding:34px 0;padding-bottom:max(34px,env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(242,204,10,.12)}
+.fc{font-size:11px;color:#8899CC}
+.fl{display:flex;gap:20px;list-style:none}
+.fl a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8899CC;text-decoration:none;transition:color .2s}
+.fl a:hover{color:#F2CC0A}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s,transform .65s}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+#cvs{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.2}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="cvs"></canvas>
+
+<nav>
+  <div class="ni">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="SG Private Limited">
+      <div><div class="logo-n">SG Private Limited</div><div class="logo-s">Namakkal • Document Verification</div></div>
+    </a>
+    <ul class="nl">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="achievement.html" class="active">Achievements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mm" id="mm">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="achievement.html" class="active">Achievements</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <img src="images/logo.png" class="ph-bg" aria-hidden="true" alt="">
+  <div class="ph-inner">
+    <p class="ey rv">Our Track Record</p>
+    <h1 class="ph-title rv d1">Milestones &amp;<br><em>Achievements</em></h1>
+  </div>
+</div>
+<div class="rainbow-strip"></div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="st"><div class="st-n" data-t="500">0</div><div class="st-l">Documents Verified</div></div>
+  <div class="st"><div class="st-n" data-t="200">0</div><div class="st-l">Clients Served</div></div>
+  <div class="st"><div class="st-n" data-t="5">0</div><div class="st-l">Years Experience</div></div>
+  <div class="st"><div class="st-n" data-t="100">0</div><div class="st-l">% Satisfaction</div></div>
+</div>
+
+<!-- IMAGE GALLERY -->
+<section class="sec">
+  <p class="ey rv">Photo Gallery</p>
+  <h2 class="sec-title rv d1">Our Work in Pictures</h2>
+  <p class="sec-sub rv d2">Click any image to view full size.</p>
+
+  <div class="img-grid rv d2">
+    <div class="gi wide" onclick="openLb(0)">
+      <img src="images/Picsart_26-10-28_09-07-25-258.jpg.jpeg" alt="SG Private Limited" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">SG Private Limited</span></div>
+    </div>
+    <div class="gi tall" onclick="openLb(1)">
+      <img src="images/Picsart_26-10-28_09-16-11-669.jpg.jpeg" alt="Office" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">Our Office</span></div>
+    </div>
+    <div class="gi" onclick="openLb(2)">
+      <img src="images/Picsart_26-10-18_05-20-53-484.jpg.jpeg" alt="Team" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">Our Team</span></div>
+    </div>
+    <div class="gi" onclick="openLb(3)">
+      <img src="images/Picsart_26-10-18_05-22-07-865.jpg.jpeg" alt="Work" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">Document Work</span></div>
+    </div>
+    <div class="gi" onclick="openLb(4)">
+      <img src="images/Picsart_26-10-18_05-24-12-464.jpg.jpeg" alt="Verification" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">Verification</span></div>
+    </div>
+    <div class="gi" onclick="openLb(5)">
+      <img src="images/Picsart_26-09-18_09-12-23-790.jpg.jpeg" alt="Event" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">Event</span></div>
+    </div>
+    <div class="gi" onclick="openLb(6)">
+      <img src="images/IMG_20260717_173344.jpg.jpeg" alt="Activity" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">Activity</span></div>
+    </div>
+    <div class="gi" onclick="openLb(7)">
+      <img src="images/IMG_20260717_173627.jpg.jpeg" alt="Activity 2" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">Activity</span></div>
+    </div>
+    <div class="gi" onclick="openLb(8)">
+      <img src="images/Picsart_26-09-19_09-18-44-532.jpg.jpeg" alt="Team" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">Team</span></div>
+    </div>
+    <div class="gi" onclick="openLb(9)">
+      <img src="images/Picsart_26-06-10_06-11-48-087.jpg.jpeg" alt="Event" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">Event</span></div>
+    </div>
+    <div class="gi" onclick="openLb(10)">
+      <img src="images/Picsart_26-05-07_20-52-15-898.jpg.jpeg" alt="Work" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">Work</span></div>
+    </div>
+    <div class="gi" onclick="openLb(11)">
+      <img src="images/Picsart_25-11-01_10-04-58-782.png" alt="Design" loading="lazy">
+      <div class="gi-ov"><span class="gi-lbl">Milestone</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO GALLERY -->
+<div class="rainbow-strip"></div>
+<section class="sec">
+  <p class="ey rv">Video Gallery</p>
+  <h2 class="sec-title rv d1">Watch Us in Action</h2>
+  <div class="vid-grid rv d2">
+    <div class="vi-card">
+      <video src="videos/InShot_20251008_114816469.mp4" preload="metadata" muted loop></video>
+      <div class="vi-play"><div class="vi-play-btn">▶</div></div>
+      <div class="vi-lbl">SG Private Limited</div>
+    </div>
+    <div class="vi-card">
+      <video src="videos/InShot_20251116_222633785.mp4" preload="metadata" muted loop></video>
+      <div class="vi-play"><div class="vi-play-btn">▶</div></div>
+      <div class="vi-lbl">Our Services</div>
+    </div>
+    <div class="vi-card">
+      <video src="videos/VID_20260515_200453_892.mp4" preload="metadata" muted loop></video>
+      <div class="vi-play"><div class="vi-play-btn">▶</div></div>
+      <div class="vi-lbl">Team at Work</div>
+    </div>
+    <div class="vi-card">
+      <video src="videos/lv_0_20231007215427.mp4" preload="metadata" muted loop></video>
+      <div class="vi-play"><div class="vi-play-btn">▶</div></div>
+      <div class="vi-lbl">Events &amp; Activities</div>
+    </div>
+    <div class="vi-card">
+      <video src="videos/lv_0_20260718121621.mp4" preload="metadata" muted loop></video>
+      <div class="vi-play"><div class="vi-play-btn">▶</div></div>
+      <div class="vi-lbl">Highlights</div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<div class="rainbow-strip"></div>
+<section class="sec">
+  <p class="ey rv">Recognition</p>
+  <h2 class="sec-title rv d1">Our Achievements</h2>
+  <div class="aw-grid">
+    <div class="aw rv"><div class="aw-shine"></div><div class="aw-y">Achievement</div><div class="aw-t">Excellence in Document Services</div><div class="aw-b">Recognized for consistent accuracy and reliability across all client categories and document types.</div></div>
+    <div class="aw rv d1"><div class="aw-shine"></div><div class="aw-y">Achievement</div><div class="aw-t">100% Client Satisfaction</div><div class="aw-b">Maintained a perfect satisfaction record through thorough follow-through on every case handled.</div></div>
+    <div class="aw rv d2"><div class="aw-shine"></div><div class="aw-y">Achievement</div><div class="aw-t">500+ Documents Processed</div><div class="aw-b">Industry-leading turnaround times with zero error margin across all document categories.</div></div>
+    <div class="aw rv d3"><div class="aw-shine"></div><div class="aw-y">Achievement</div><div class="aw-t">Trusted by 200+ Clients</div><div class="aw-b">Built a loyal client base across Namakkal and surrounding districts through consistent service.</div></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <button class="lb-prev" onclick="lbNav(-1)">‹</button>
+  <img class="lb-img" id="lb-img" src="" alt="">
+  <button class="lb-next" onclick="lbNav(1)">›</button>
+</div>
+
+<div class="rainbow-strip"></div>
+<div class="footer-sect">
+  <footer>
+    <p class="fc">© 2024 SG Private Limited, Namakkal. All rights reserved.</p>
+    <ul class="fl">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+</div>
+
+<script>
+document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mm').classList.toggle('open'));
+
+// Reveal
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// Counters
+let counted=false;
+const statsOb=new IntersectionObserver(es=>{
+  if(counted)return;
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      counted=true;
+      document.querySelectorAll('.st-n[data-t]').forEach(el=>{
+        const tgt=+el.dataset.t,dur=1700,s=performance.now();
+        (function tick(now){
+          const p=Math.min((now-s)/dur,1),ease=p<.5?2*p*p:-1+(4-2*p)*p;
+          el.textContent=Math.round(ease*tgt);
+          if(p<1)requestAnimationFrame(tick);else el.textContent=tgt;
+        })(performance.now());
+        requestAnimationFrame(function tick(now){
+          const p=Math.min((now-s)/dur,1),ease=p<.5?2*p*p:-1+(4-2*p)*p;
+          el.textContent=Math.round(ease*tgt);
+          if(p<1)requestAnimationFrame(tick);else el.textContent=tgt;
+        });
+      });
+      statsOb.disconnect();
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.stats-row .st').forEach(el=>statsOb.observe(el));
+
+// Video play toggle
+document.querySelectorAll('.vi-card').forEach(card=>{
+  const vid=card.querySelector('video');
+  const play=card.querySelector('.vi-play');
+  card.addEventListener('click',()=>{
+    if(vid.paused){vid.play();play.style.opacity='0';}
+    else{vid.pause();play.style.opacity='1';}
+  });
+});
+
+// Lightbox
+const imgs=Array.from(document.querySelectorAll('.gi img')).map(i=>({src:i.src,alt:i.alt}));
+let cur=0;
+function openLb(i){cur=i;document.getElementById('lb-img').src=imgs[i].src;document.getElementById('lb').classList.add('open');}
+function closeLb(){document.getElementById('lb').classList.remove('open');}
+function lbNav(d){cur=(cur+d+imgs.length)%imgs.length;document.getElementById('lb-img').src=imgs[cur].src;}
+document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)closeLb();});
+document.addEventListener('keydown',e=>{if(document.getElementById('lb').classList.contains('open')){if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);}});
+
+// Canvas particles
+(function(){
+  const cv=document.getElementById('cvs'),cx=cv.getContext('2d');
+  let W,H;const rsz=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight};rsz();window.addEventListener('resize',rsz);
+  const clrs=['#F2CC0A','#1A35B0','#FF0000','#33CC00','#CC00CC','#0099FF','#FF6600'];
+  const pts=Array.from({length:28},(_,i)=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,sz:Math.random()*2+.7,op:Math.random()*.25+.08,rot:Math.random()*Math.PI*2,rspd:(Math.random()-.5)*.004,c:clrs[i%clrs.length],doc:Math.random()>.65}));
+  function draw(){cx.clearRect(0,0,W,H);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.rot+=p.rspd;if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.globalAlpha=p.op*.4;if(p.doc){cx.strokeStyle=p.c;cx.lineWidth=.6;const w=p.sz*5,h=p.sz*7;cx.strokeRect(-w/2,-h/2,w,h);}else{cx.fillStyle=p.c;cx.fillRect(-p.sz/2,-p.sz/2,p.sz,p.sz);}cx.restore();});requestAnimationFrame(draw);}
+  if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches)draw();else cv.style.display='none';
+})();
+</script>
+</body>
+</html>
