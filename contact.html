@@ -181,7 +181,7 @@ footer{max-width:1300px;margin:0 auto;padding:34px 0;padding-bottom:max(34px,env
           <div class="ic-ico">📞</div>
           <div>
             <div class="ic-lbl">Phone</div>
-            <div class="ic-val"><a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a></div>
+            <div class="ic-val"><a href="tel:+919080251524">+91 90802 51524</a></div>
           </div>
         </div>
         <div class="ic">
@@ -202,7 +202,7 @@ footer{max-width:1300px;margin:0 auto;padding:34px 0;padding-bottom:max(34px,env
           <div class="ic-ico">📄</div>
           <div>
             <div class="ic-lbl">Services</div>
-            <div class="ic-val">Document Verification<br>File Management · Certification</div>
+            <div class="ic-val">Office Work · File Management<br>Documents Verification · Social Media · Team Handling</div>
           </div>
         </div>
       </div>
@@ -222,7 +222,7 @@ footer{max-width:1300px;margin:0 auto;padding:34px 0;padding-bottom:max(34px,env
           </div>
           <div class="fg">
             <label for="cp">Phone Number *</label>
-            <input type="tel" id="cp" placeholder="+91 XXXXX XXXXX" required autocomplete="tel">
+            <input type="tel" id="cp" placeholder="+91 90802 51524" required autocomplete="tel">
           </div>
         </div>
         <div class="fg">
@@ -233,10 +233,11 @@ footer{max-width:1300px;margin:0 auto;padding:34px 0;padding-bottom:max(34px,env
           <label for="cs">Service Required</label>
           <select id="cs">
             <option value="">Select a service…</option>
-            <option>Document Verification</option>
+            <option>Office Work</option>
             <option>File Management</option>
-            <option>Certification Services</option>
-            <option>Record Processing</option>
+            <option>Documents Verification</option>
+            <option>Social Media Maintenance</option>
+            <option>Team Handling</option>
             <option>Other Enquiry</option>
           </select>
         </div>
@@ -246,7 +247,7 @@ footer{max-width:1300px;margin:0 auto;padding:34px 0;padding-bottom:max(34px,env
         </div>
         <button type="submit" class="btn btn-y" id="csub">Send Enquiry →</button>
         <div class="fok" id="fok">
-          ✓ &nbsp;Thank you! We have received your enquiry and will contact you within 24 hours.
+          ✓ &nbsp;WhatsApp-ல் message திறக்கிறது! Send பண்ணுங்கள் — நாங்கள் விரைவில் reply செய்வோம்.
         </div>
       </form>
     </div>
@@ -283,15 +284,27 @@ document.getElementById('hbg').addEventListener('click',()=>document.getElementB
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});},{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-// Form submit
+// Form submit → WhatsApp
 document.getElementById('cform').addEventListener('submit',function(e){
   e.preventDefault();
-  const btn=document.getElementById('csub');
-  btn.textContent='Sending…';btn.disabled=true;
-  setTimeout(()=>{
-    btn.style.display='none';
-    document.getElementById('fok').style.display='block';
-  },900);
+  const name   = document.getElementById('cn').value.trim();
+  const phone  = document.getElementById('cp').value.trim();
+  const email  = document.getElementById('ce') ? document.getElementById('ce').value.trim() : '';
+  const service= document.getElementById('cs').value;
+  const msg    = document.getElementById('cm').value.trim();
+
+  const text =
+    `*New Enquiry — SG Private Limited*\n\n` +
+    `*Name:* ${name}\n` +
+    `*Phone:* ${phone}\n` +
+    (email ? `*Email:* ${email}\n` : '') +
+    `*Service:* ${service}\n\n` +
+    `*Message:*\n${msg}`;
+
+  const waURL = `https://wa.me/919080251524?text=${encodeURIComponent(text)}`;
+  window.open(waURL, '_blank');
+
+  document.getElementById('fok').style.display='block';
 });
 
 // Canvas particles
